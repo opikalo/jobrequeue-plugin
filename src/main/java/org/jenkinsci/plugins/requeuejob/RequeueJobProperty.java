@@ -29,7 +29,7 @@ public class RequeueJobProperty extends JobProperty<AbstractProject<?, ?>> {
 
     @Override
     public boolean perform(AbstractBuild<?,?> build, Launcher launcher, BuildListener listener) throws InterruptedException, IOException {
-    	if(this.requeueJob && (build.getResult() == Result.ABORTED || build.getResult() == Result.FAILED))
+    	if(this.requeueJob && (build.getResult() == Result.ABORTED || build.getResult() == Result.FAILURE))
     	{
     		// Job either aborted or failed
     		Computer comp = Computer.currentComputer();
